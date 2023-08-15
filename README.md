@@ -2,6 +2,10 @@
 
 Prints a Minecraft avatar from a skin in the terminal.
 
+## Demo
+
+<img src="./demo.png" alt="mcav-rs-demo" width="500" />
+
 ## Quick Start
 
 ```sh
