@@ -8,9 +8,17 @@ Prints a Minecraft avatar from a skin in the terminal.
 
 ## Quick Start
 
+Build:
 ```sh
 $ cargo build --release
+```
+
+Use:
+```sh
+# Normal scale
 $ target/release/mcav-rs assets/skin.png
+# Custom scale
+$ target/release/mcav-rs assets/skin.png 2
 ```
 
 ## License

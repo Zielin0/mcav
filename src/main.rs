@@ -4,25 +4,33 @@ use colored::*;
 use image::{GenericImageView, Rgba};
 
 fn fail(message: &str) {
-    println!("ERROR: {message}");
+    println!("ERROR: {}", message);
     process::exit(1)
 }
 
-fn print_head(pixels: &Vec<Rgba<u8>>) {
-    for y in 0..8 {
-        for x in 0..8 {
-            let index = y * 8 + x;
-            if let Some(color) = pixels.get(index) {
-                print!("{}", "  ".on_truecolor(color[0], color[1], color[2]))
+fn print_head(pixels: &Vec<Rgba<u8>>, scale: usize) {
+    for y in 0..8 * scale {
+        for x in 0..8 * scale {
+            for _ in 0..scale {
+                let index = (y / scale) * 8 + (x / scale);
+                if let Some(color) = pixels.get(index) {
+                    let space = if scale == 1 { "  " } else { " " };
+                    print!("{}", space.on_truecolor(color[0], color[1], color[2]));
+                }
             }
         }
-        print!("\n")
+        print!("\n");
     }
 }
 
 fn main() {
     match env::args().nth(1) {
         Some(skin_path) => {
+            let mut scale = 1;
+            if let Some(scale_arg) = env::args().nth(2) {
+                scale = scale_arg.parse::<usize>().unwrap();
+            }
+
             let is_file = Path::new(skin_path.as_str()).is_file();
             if !is_file {
                 fail(format!("File '{}' doesn't exist", skin_path).as_str())
@@ -52,7 +60,7 @@ fn main() {
                 }
             }
 
-            print_head(&pixels)
+            print_head(&pixels, scale)
         }
         None => fail("Missing a path to skin.png"),
     }
