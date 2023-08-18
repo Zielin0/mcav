@@ -16,9 +16,9 @@ $ cargo build --release
 Use:
 ```sh
 # Normal scale
-$ target/release/mcav-rs assets/skin.png
+$ target/release/mcav assets/skin.png
 # Custom scale
-$ target/release/mcav-rs assets/skin.png 2
+$ target/release/mcav assets/skin.png 2
 ```
 
 ## License
