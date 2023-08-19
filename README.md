@@ -4,23 +4,23 @@ Prints a Minecraft avatar from a skin in the terminal.
 
 ## Demo
 
-<img src="./demo.png" alt="mcav-rs-demo" width="500" />
+<img src="https://raw.githubusercontent.com/Zielin0/mcav/master/demo.png" alt="mcav-rs-demo" width="500" />
 
 ## Quick Start
 
 Build:
 ```sh
-$ cargo build --release
+$ cargo install mcav
 ```
 
 Use:
 ```sh
 # Normal scale
-$ target/release/mcav <username>
+$ mcav <username>
 # Custom scale
-$ target/release/mcav <username> 2
+$ mcav <username> 2
 ```
 
 ## License
 
-This project is under the [MIT](./LICENSE) License.
+This project is under the [MIT](https://github.com/Zielin0/mcav/blob/master/LICENSE) License.
