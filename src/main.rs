@@ -27,7 +27,7 @@ struct SkinResponse {
 
 #[derive(Serialize, Deserialize, Debug)]
 struct SkinTexture {
-    metadata: Value,
+    metadata: Option<Value>,
     url: String,
 }
 
@@ -119,6 +119,7 @@ async fn main() {
 
             let skin = get_skin(parsed_skin_json.textures.skin.url).await.unwrap();
 
+            // TODO: Some skins can actually be 64x32 because mojang added second layer after 1.8
             if skin.dimensions() != (64, 64) {
                 fail("Wrong skin size. Should never happen.")
             }
