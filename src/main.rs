@@ -107,7 +107,10 @@ async fn main() {
                 scale = scale_arg.parse::<usize>().unwrap();
             }
 
-            let uuid = get_uuid(&username).await.unwrap();
+            let uuid = get_uuid(&username).await.unwrap_or_else(|_| {
+                fail(format!("Player '{}' doesn't exist.", username).as_str());
+                Default::default()
+            });
             let skin_data_base64 = get_skin_base64(uuid.as_str()).await.unwrap();
 
             let skin_bytes = general_purpose::STANDARD.decode(skin_data_base64).unwrap();
