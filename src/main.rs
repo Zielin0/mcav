@@ -1,8 +1,8 @@
 use std::{env, process};
 
 use base64::{engine::general_purpose, Engine};
-use colored::*;
 use image::{DynamicImage, GenericImageView, Rgba};
+use owo_colors::OwoColorize;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
