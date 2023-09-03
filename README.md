@@ -8,7 +8,7 @@ Prints a Minecraft avatar from a skin in the terminal.
 
 ## Quick Start
 
-Build:
+Install:
 ```sh
 $ cargo install mcav
 ```
